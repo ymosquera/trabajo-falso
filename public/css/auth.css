@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+:root{
+    --bg-color: #F2F2F2;
+    --s-bg-color: #D0D2E1;
+    --main-color: #E83838;
+    --text-color: #000;
+    --o-text-color: #fff;
+}
+*{
+    margin: 0%;
+    padding: 0%;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' version='1.1' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:svgjs='http://svgjs.com/svgjs' width='1440' height='560' preserveAspectRatio='none' viewBox='0 0 1440 560'%3e%3cg mask='url(%26quot%3b%23SvgjsMask1033%26quot%3b)' fill='none'%3e%3crect width='1440' height='560' x='0' y='0' fill='rgba(255%2c 255%2c 255%2c 1)'%3e%3c/rect%3e%3cpath d='M -424.5452161182149%2c172 C -280.55%2c205.8 7.45%2c331.2 295.4547838817851%2c341 C 583.45%2c350.8 727.45%2c221 1015.454783881785%2c221 C 1303.45%2c221 1650.55%2c329.8 1735.454783881785%2c341 C 1820.36%2c352.2 1499.09%2c289.8 1440%2c277' stroke='rgba(232%2c 56%2c 56%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M -675.4274374946149%2c147 C -531.43%2c198.4 -243.43%2c392.2 44.572562505385065%2c404 C 332.57%2c415.8 476.57%2c207.6 764.5725625053851%2c206 C 1052.57%2c204.4 1349.49%2c394.6 1484.5725625053851%2c396 C 1619.66%2c397.4 1448.91%2c249.6 1440%2c213' stroke='rgba(232%2c 56%2c 56%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M -54.1588809662876%2c324 C 89.84%2c301.8 377.84%2c189 665.8411190337124%2c213 C 953.84%2c237 1097.84%2c442.6 1385.8411190337124%2c444 C 1673.84%2c445.4 2095.01%2c229.4 2105.8411190337124%2c220 C 2116.67%2c210.6 1573.17%2c361.6 1440%2c397' stroke='rgba(232%2c 56%2c 56%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M -447.99526509204003%2c374 C -304%2c319.6 -16%2c114.8 272.00473490795997%2c102 C 560%2c89.2 704%2c310.6 992.00473490796%2c310 C 1280%2c309.4 1622.41%2c84.2 1712.00473490796%2c99 C 1801.6%2c113.8 1494.4%2c327 1440%2c384' stroke='rgba(232%2c 56%2c 56%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M -432.4580199021849%2c226 C -288.46%2c273.4 -0.46%2c457.6 287.5419800978151%2c463 C 575.54%2c468.4 719.54%2c278.8 1007.5419800978151%2c253 C 1295.54%2c227.2 1641.05%2c337.4 1727.5419800978152%2c334 C 1814.03%2c330.6 1497.51%2c255.6 1440%2c236' stroke='rgba(232%2c 56%2c 56%2c 1)' stroke-width='2'%3e%3c/path%3e%3cpath d='M -1403.3997787673334%2c146 C -1259.4%2c182.4 -971.4%2c307.6 -683.3997787673333%2c328 C -395.4%2c348.4 -251.4%2c220.4 36.60022123266674%2c248 C 324.6%2c275.6 475.92%2c486 756.6002212326667%2c466 C 1037.28%2c446 1303.32%2c211.6 1440%2c148' stroke='rgba(232%2c 56%2c 56%2c 1)' stroke-width='2'%3e%3c/path%3e%3c/g%3e%3cdefs%3e%3cmask id='SvgjsMask1033'%3e%3crect width='1440' height='560' fill='white'%3e%3c/rect%3e%3c/mask%3e%3c/defs%3e%3c/svg%3e");
+    background-size: cover ;
+    background-repeat: no-repeat;
+}
+.form-container-l,
+.form-container-r{
+    display: flex;
+    align-items: center;
+    border-radius: 4rem;
+    flex-direction: column;
+    justify-content: center;
+    background: var(--bg-color);
+    -webkit-border-radius: 4rem;
+    -moz-border-radius: 4rem;
+    -ms-border-radius: 4rem;
+    -o-border-radius: 4rem;
+}
+.form-container-l{
+    width: 40%;
+    height: 380px;
+}
+.form-container-r{
+    width: 50%;
+    height: 480px;
+}
+.form-container-l form,
+.form-container-r form{
+    width: 80%;
+    padding: 14px;
+}
+.form-container-l .title,
+.form-container-r .title{
+    padding: 10px 0px;
+    margin-bottom: 12px;
+}
+.form-container-l .title h2,
+.form-container-r .title h2{
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--main-color);
+}
+.input-field-l{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    background: var(--s-bg-color);
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+}
+.input-field-l input{
+    width: 440px;
+    height: 50px;
+    border: none;
+    padding: 12px;
+    outline: none;
+    font-size: 16px;
+    background: none;
+    font-weight: 600;
+    color: var(--text-color);
+}
+.input-field-l i{
+    font-size: 24px;
+    margin: 0px 6px 0px 16px ;
+}
+.input-field-l input::placeholder{
+    font-weight: 600;
+    color: var(--text-color);
+}
+.sub-l{
+    margin-bottom: 30px;
+}
+.sub-r{
+    margin-bottom: 15px;
+}
+.inputs-container{
+    gap: 15px;
+    width: 100%;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.input-field-r{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    background: var(--s-bg-color);
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    -ms-border-radius: 12px;
+    -o-border-radius: 12px;
+}
+.input-field-r input,select{
+    width: 220px;
+    height: 50px;
+    border: none;
+    padding: 12px;
+    outline: none;
+    font-size: 16px;
+    background: none;
+    font-weight: 600;
+    color: var(--text-color);
+}
+.input-field-r i{
+    font-size: 24px;
+    margin: 0px 6px 0px 16px ;
+}
+.input-field-r input::placeholder{
+    font-weight: 600;
+    color: var(--text-color);
+}
+.button-form{
+    display: flex;
+    align-items: center;
+    margin-bottom: 14px;
+    justify-content: center;
+}
+.button-form .login{
+    width: 210px;
+    border: none;
+    height: 40px;
+    display: flex;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    align-items: center;
+    justify-content: center;
+    transition: all .40s ease;
+    color: var(--o-text-color);
+    border: 2px solid transparent;
+    background: var(--main-color);
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -ms-border-radius: 6px;
+    -o-border-radius: 6px;
+    -webkit-transition: all .40s ease;
+    -moz-transition: all .40s ease;
+    -ms-transition: all .40s ease;
+    -o-transition: all .40s ease;
+}
+.button-form .login i{
+    font-size: 24px;
+    margin-right: 6px;
+}
+.button-form .login:hover{
+    background: none;
+    color: var(--main-color);
+    border: 2px solid var(--main-color);
+}
+.login-signup a{
+    font-weight: 600;
+    color: var(--main-color);
+    text-decoration: underline;
+}
