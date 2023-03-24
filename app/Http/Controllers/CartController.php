@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use App\Models\Tbl_Catalogo;
+use App\Models\Tbl_Producto_Auditoria;
 use LaravelDaily\LaravelCharts\Classes\LaravelChart;
+use Carbon\Carbon; // agrega esta línea
 use Cart;
 
 class CartController extends Controller{
@@ -73,34 +74,29 @@ class CartController extends Controller{
     }
 
     public function grafica(Request $request, $id){
-
-        $chart_options = [
-            'chart_title' => 'promedio precio del producto',
-            'report_type' => 'group_by_date',
-            'model' => 'App\Models\Tbl_Catalogo',
-            'group_by_field' => 'updated_at',
-            'group_by_period' => 'day',
-            'aggregate_function' => 'avg',
-            'aggregate_field' => 'precio',
-            'chart_type' => 'line',
+        $productos = DB::table('tbl_producto_auditoria')
+        ->select('updated_at', 'precio')
+        ->where('catalogo_id', $id)
+            ->orderBy('updated_at')
+            ->get();
 
 
+        // Preparar los datos para la gráfica
+        $fechas = [];
+        $precios = [];
 
-            'conditions'=> [
-                ['name' => 'Food', 'condition' => 'id_catalogo ='.$id, 'color' => 'red', 'fill' => true],
-              
-            ],
-          
+        foreach ($productos as $producto) {
 
-            
-        
+            $fecha = Carbon::parse($producto->updated_at);
+            $fechas[] = $fecha->format('Y-m-d H:i:s');
+            $precios[] = $producto->precio;
+        }
 
-
-        ];
-
-        $chart1 = new LaravelChart($chart_options);
-        
-        return view('updates.carrito.grafica', compact('chart1'));
+        // Devolver la vista con los datos para la gráfica
+        return view('updates.carrito.grafica', [
+            'fechas' => $fechas,
+            'precios' => $precios
+        ]);
 
     }
 

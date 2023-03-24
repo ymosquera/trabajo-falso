@@ -13,6 +13,7 @@
                 <div class="input-field">
                     <i class='bx bxs-cookie'></i>
                     <input type="text" name="nombrep" value="{{$catalogo->nombrep}}" autocomplete="off">
+                    <input type="hidden" name="usuario_id" value="{{auth()->user()->id_usuario}}">
                 </div>
                 <div class="input-field">
                     <i class='bx bxs-dollar-circle'></i>

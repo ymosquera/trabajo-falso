@@ -1,31 +1,44 @@
 
 
 
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-        
-            <h1>{{ $chart1->options['chart_title'] }}</h1>
-                    {!! $chart1->renderHtml() !!}
-            <canvas id="myChart">
-      
-            </canvas>
-                <div class="card-body">
 
-               
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-
-{!! $chart1->renderChartJsLibrary() !!}
-{!! $chart1->renderJs() !!}
-{!! $chart1->renderHtml() !!}
-
-
-@push('scripts')
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grafica de precios</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="myChart"></canvas>
+    <script>
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: {!! json_encode($fechas) !!},
+                datasets: [{
+                    label: 'Precio',
+                    data: {!! json_encode($precios) !!},
+                    backgroundColor: 'transparent',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        type: 'time',
+                        time: {
+                            unit: 'day',
+                            displayFormats: {
+                                day: 'MMM D'
+                            }
+                        },
+                        distribution: 'linear'
+                    }]
+                }
+            }
+        });
+    </script>
+</body>
+</html>

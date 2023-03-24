@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tbl_Catalogo;
+use App\Models\Tbl_Producto_Auditoria;
 use Illuminate\Support\Facades\DB;
 
 class TblCatalogoController extends Controller{
@@ -40,8 +41,23 @@ class TblCatalogoController extends Controller{
             $imagen->move($rutaguardarimg, $imagenprod);
             $datoscatalogo['foto'] = $imagenprod;
         }
+
+
         //
         tbl_catalogo::create($datoscatalogo);
+
+
+        $catalogo_id = Tbl_Catalogo::max('id_catalogo');
+        // Registrar auditoría
+        $auditoria = new Tbl_Producto_Auditoria([
+            'catalogo_id' => $catalogo_id,
+            'usuario_id' => $request->input('usuario_id'),
+            'accion' => 'crear',
+            'precio'=> $request->input('precio')
+        ]);
+
+        $auditoria->save();
+
         return redirect()->route('catalogo.index');
     }
 
@@ -86,7 +102,18 @@ class TblCatalogoController extends Controller{
         }
         //
         tbl_catalogo::where('id_catalogo', '=', $id)->update($datoscatalogo);
+        $auditoria = new Tbl_Producto_Auditoria([
+            'catalogo_id' => $id,
+            'usuario_id' => $request->input('usuario_id'),
+            'accion' => 'actualizar',
+            'precio' => $request->input('precio')
+        ]);
+
+        $auditoria->save();
         return redirect()->route('catalogo.index');
+
+
+
     }
 
     /**
